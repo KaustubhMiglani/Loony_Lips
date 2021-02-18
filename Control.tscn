@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://gfx/blackboard.jpg" type="Texture" id=2]
+[ext_resource path="res://gfx/Feltpen.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://gfx/blue_button11.png" type="Texture" id=4]
+[ext_resource path="res://gfx/blue_button12.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.49829
+margin_top = 0.749176
+margin_right = 1.49829
+margin_bottom = 0.749146
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerText" type="LineEdit" parent="."]
+margin_left = 24.0
+margin_top = 454.0
+margin_right = 920.0
+margin_bottom = 562.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 19.0
+margin_right = 985.0
+margin_bottom = 394.0
+custom_fonts/font = SubResource( 2 )
+text = "ok ok "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 927.0
+margin_top = 454.0
+margin_right = 1004.0
+margin_bottom = 562.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+expand = true
+[connection signal="text_entered" from="PlayerText" to="." method="_on_PlayerText_text_entered"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
